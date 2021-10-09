@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/izztnkr/Team-Roster-Generator/issues"
   },
-  "homepage": "https://github.com/izztnkr/Team-Roster-Generator#readme"
+  "homepage": "https://github.com/izztnkr/Team-Roster-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
 }
