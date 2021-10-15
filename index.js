@@ -35,7 +35,7 @@ const optionQuestion = [
   {
     type: "list",
     name: "employee_Option",
-    message: "What would you like to do next?",
+    message: "What would you like to do next? (use arrow key)",
     choices: [
       "create Engineer profile",
       "create Intern profile",
@@ -98,6 +98,14 @@ function employee_option_Choice(answers) {
     inquirer.prompt(questionsEngineer).then((answers) => {
       const { name } = answers;
       console.log(answers);
+      inquirer.prompt(optionQuestion).then((answers) => {
+        const { name } = answers;
+        console.log(answers);
+        return {
+          answers,
+        };
+        let managerChoice = employee_option_Choice(answers);
+      });
     });
   } else if (answers.employee_Option === "create Intern profile") {
     //  block of code to be executed if condition2 is true
@@ -105,6 +113,11 @@ function employee_option_Choice(answers) {
     inquirer.prompt(questionsIntern).then((answers) => {
       const { name } = answers;
       console.log(answers);
+      inquirer.prompt(optionQuestion).then((answers) => {
+        const { name } = answers;
+        console.log(answers);
+        let managerChoice = employee_option_Choice(answers);
+      });
     });
   } else if (answers.employee_Option === "Generate Team Roster Webpage") {
     //  block of code to be executed if condition3 is true
@@ -177,16 +190,16 @@ const generateHTMLStyling = (answers) => {
               </header>
               <div class="card-content has-background-grey-lighter">
                 <div class="content has-background-white">
-                  <p>ID: ${answers.employee_Number}</p>
+                  <p>ID: ${answers.engineer_employee_Number}</p>
                 </div>
                 <div class="content has-background-white">
-                  <a href="mailto: ${answers.email_Me}"
-                    >Email: ${answers.email_Engineer}</a
+                  <a href="mailto: ${answers.engineer_Email}"
+                    >Email: ${answers.engineer_Email}</a
                   >
                 </div>
                 <div class="content has-background-white">
-                  <a href="https://github.com/${answers.git_Hub}"
-                    >${answers.github_Employee}</a
+                  <a href="https://github.com/${answers.engineer_GitHub}"
+                    >${answers.engineer_GitHub}</a
                   >
                 </div>
               </div>
@@ -197,22 +210,22 @@ const generateHTMLStyling = (answers) => {
               <header class="card-header has-background-success">
                 <p class="card-header-title"></p>
                 <div class="media-content">
-                  <p class="title is-4">${answers.engineer_Intern}</p>
+                  <p class="title is-4">${answers.intern_Name}</p>
                   <p class="subtitle is-5">Intern</p>
                 </div>
               </header>
               <div class="card-content has-background-grey-lighter">
                 <div class="content has-background-white">
-                  <p>ID: ${answers.employee_Number}</p>
+                  <p>ID: ${answers.intern_Employee_Number}</p>
                 </div>
                 <div class="content has-background-white">
-                  <a href="mailto: ${answers.email_Me}"
-                    >Email: ${answers.email_Intern}</a
+                  <a href="mailto: ${answers.intern_Email}"
+                    >Email: ${answers.intern_Email}</a
                   >
                 </div>
                 <div class="content has-background-white">
-                  <a href="https://github.com/${answers.git_Hub}"
-                    >${answers.github_Employee}</a
+                  <a href="https://github.com/${answers.intern_GitHub}"
+                    >${answers.intern_GitHub}</a
                   >
                 </div>
               </div>
