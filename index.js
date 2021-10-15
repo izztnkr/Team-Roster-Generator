@@ -20,13 +20,13 @@ const questions = [
   },
   {
     type: "input",
-    name: "email_Me",
-    message: "What is the email to reach you at?",
+    name: "email_Manager",
+    message: "What is the Manager's email?",
   },
   {
     type: "input",
-    name: "git_Hub",
-    message: "What is your GitHub username?",
+    name: "office_Number",
+    message: "What is your office number?",
   },
   // {
   //   type: "input",
@@ -109,27 +109,104 @@ inquirer.prompt(questions).then((answers) => {
     return `
     <!DOCTYPE html>
     <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-    </head>
-    <body>
-
-    
-      
-    </body>
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+        />
+        <title>Team Roster</title>
+      </head>
+      <body>
+        <section class="hero">
+          <div class="hero-body">
+            <p class="title">Team ${answers.team_Name}</p>
+          </div>
+        </section>
+        <section class="section">
+          <div class="tile is-ancestor">
+            <div class="tile is-parent">
+              <div class="card is-child">
+                <header class="card-header has-background-success">
+                  <p class="card-header-title"></p>
+                  <div class="media-content">
+                    <p class="title is-4">${answers.manager_Name}</p>
+                    <p class="subtitle is-5">Manager</p>
+                  </div>
+                </header>
+                <div class="card-content has-background-grey-lighter">
+                  <div class="content has-background-white">
+                    <p>ID: {answers.employee_Number}</p>
+                  </div>
+                  <div class="content has-background-white">
+                    <a href="mailto: ${answers.email_Manager}"
+                      >Email: ${answers.email_Manager}</a
+                    >
+                  </div>
+                  <div class="content has-background-white">
+                    <p>Office Number: ${answers.office_Number}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tile is-parent">
+              <div class="card is-child">
+                <header class="card-header has-background-success">
+                  <p class="card-header-title"></p>
+                  <div class="media-content">
+                    <p class="title is-4">{answers.engineer_Name}</p>
+                    <p class="subtitle is-5">Engineer</p>
+                  </div>
+                </header>
+                <div class="card-content has-background-grey-lighter">
+                  <div class="content has-background-white">
+                    <p>ID: {answers.employee_Number}</p>
+                  </div>
+                  <div class="content has-background-white">
+                    <a href="mailto: {answers.email_Me}"
+                      >Email: {answers.email_Engineer}</a
+                    >
+                  </div>
+                  <div class="content has-background-white">
+                    <a href="https://github.com/{answers.git_Hub}"
+                      >{answers.github_Employee}</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tile is-parent">
+              <div class="card is-child">
+                <header class="card-header has-background-success">
+                  <p class="card-header-title"></p>
+                  <div class="media-content">
+                    <p class="title is-4">{answers.engineer_Intern}</p>
+                    <p class="subtitle is-5">Intern</p>
+                  </div>
+                </header>
+                <div class="card-content has-background-grey-lighter">
+                  <div class="content has-background-white">
+                    <p>ID: {answers.employee_Number}</p>
+                  </div>
+                  <div class="content has-background-white">
+                    <a href="mailto: {answers.email_Me}"
+                      >Email: {answers.email_Intern}</a
+                    >
+                  </div>
+                  <div class="content has-background-white">
+                    <a href="https://github.com/{answers.git_Hub}"
+                      >{answers.github_Employee}</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </body>
     </html>
-    <h1>${answers.project_Title} </h1>
----
-
-Questions
-Do you have questions? Here's how to contact me. 
-
-<a href = "mailto: ${answers.email_Me}">${answers.full_Name}'s email</a>
-
-<a href= "https://github.com/${answers.git_Hub}">${answers.full_Name}'s GitHub </a>
 
   `;
   };
