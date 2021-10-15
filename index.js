@@ -28,11 +28,11 @@ const questions = [
     name: "office_Number",
     message: "What is your office number?",
   },
-  // {
-  //   type: "input",
-  //   name: "project_Description",
-  //   message: "What is your project about? Provide a description.",
-  // },
+  {
+    type: "input",
+    name: "manager_Employee_Number",
+    message: "What is the Manager's employee number?",
+  },
   // {
   //   type: "input",
   //   name: "project_Installation",
@@ -138,7 +138,7 @@ inquirer.prompt(questions).then((answers) => {
                 </header>
                 <div class="card-content has-background-grey-lighter">
                   <div class="content has-background-white">
-                    <p>ID: {answers.employee_Number}</p>
+                    <p>ID: ${answers.manager_Employee_Number}</p>
                   </div>
                   <div class="content has-background-white">
                     <a href="mailto: ${answers.email_Manager}"
@@ -211,7 +211,7 @@ inquirer.prompt(questions).then((answers) => {
   `;
   };
   //-----FILE or WRITE FILE-----// ie tell the computer to write a file
-  fs.writeFile("./index.html", generateHTMLStyling(answers), (err) => {
+  fs.writeFile("./TeamRoster.html", generateHTMLStyling(answers), (err) => {
     if (err) throw err;
     console.log("Generator complete. You can check for your webpage file now!");
   });
