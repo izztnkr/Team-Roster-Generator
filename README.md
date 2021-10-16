@@ -30,5 +30,5 @@ This is an html file generator which can be run from your terminal. Specifically
 
 
  ## Link to walkthrough video
-![image](https://media3.giphy.com/media/z6EG2su1f5jOTourNL/giphy.gif?cid=ecf05e47rb8hb0im9qa5wvzyvbe2t6lw20g6i8b1a2mafbfq&rid=giphy.gif&ct=g)
+https://watch.screencastify.com/v/uwQw2Vhmg5M3m83q0Ju3
 
